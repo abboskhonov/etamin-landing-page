@@ -149,25 +149,27 @@ function LandingPage() {
               </div>
 
               {/* Stats */}
-              <div className="mt-16 grid grid-cols-2 gap-px border border-border bg-border md:grid-cols-4">
-                {[
-                  { value: "50+", label: "Projects Delivered" },
-                  { value: "10+", label: "Years Experience" },
-                  { value: "99%", label: "Client Satisfaction" },
-                  { value: "24/7", label: "Support" },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="bg-background p-6 text-center md:p-8"
-                  >
-                    <div className="text-3xl font-medium sm:text-4xl">
-                      {stat.value}
+              <div className="mt-16 border border-border bg-background shadow-sm">
+                <div className="grid grid-cols-2 gap-px bg-border md:grid-cols-4">
+                  {[
+                    { value: "50+", label: "Projects Delivered" },
+                    { value: "10+", label: "Years Experience" },
+                    { value: "99%", label: "Client Satisfaction" },
+                    { value: "24/7", label: "Support" },
+                  ].map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="bg-background p-6 text-center md:p-8"
+                    >
+                      <div className="text-3xl font-medium sm:text-4xl">
+                        {stat.value}
+                      </div>
+                      <div className="mt-2 text-sm text-muted-foreground">
+                        {stat.label}
+                      </div>
                     </div>
-                    <div className="mt-2 text-sm text-muted-foreground">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
 
