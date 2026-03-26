@@ -61,6 +61,12 @@ function CareersLayout() {
             >
               Projects
             </a>
+            <a
+              href="/#services"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Services
+            </a>
             <a href="/careers" className="text-sm font-medium text-foreground">
               Careers
             </a>
