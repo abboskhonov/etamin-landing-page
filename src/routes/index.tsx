@@ -114,7 +114,7 @@ function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <Section spacing="lg" className="relative overflow-hidden">
+      <Section spacing="default" className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-muted/50 to-transparent" />
 
         <Container className="relative">
