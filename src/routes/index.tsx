@@ -102,12 +102,6 @@ function LandingPage() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <a
-              href="mailto:hello@etamin.dev"
-              className="hidden text-sm text-muted-foreground transition-colors hover:text-foreground sm:block"
-            >
-              hello@etamin.dev
-            </a>
             <Button size="sm">Start Project</Button>
           </div>
         </Container>
