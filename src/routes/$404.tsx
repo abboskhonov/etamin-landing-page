@@ -6,7 +6,6 @@ import {
   Home,
   Layers,
   MapPin,
-  Zap,
 } from "lucide-react"
 
 import { Container } from "@/components/Container"
@@ -38,12 +37,6 @@ const quickLinks = [
     label: "Projects",
     description: "View our work",
     href: "/projects",
-  },
-  {
-    icon: Zap,
-    label: "Services",
-    description: "What we offer",
-    href: "/#services",
   },
   {
     icon: MapPin,
@@ -92,7 +85,7 @@ function NotFoundPage() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Button size="sm">Start Project</Button>
+            {/* Start Project button removed */}
           </div>
         </Container>
       </header>

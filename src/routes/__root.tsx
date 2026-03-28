@@ -243,6 +243,12 @@ export const Route = createRootRoute({
         type: "application/ld+json",
         children: JSON.stringify(websiteSchema),
       },
+      // Cloudflare Web Analytics
+      {
+        src: "https://static.cloudflareinsights.com/beacon.min.js",
+        defer: true,
+        "data-cf-beacon": '{"token": "23e6fcf2f95545868a5a9b6c6a8e4c80"}',
+      },
     ],
   }),
   shellComponent: RootDocument,

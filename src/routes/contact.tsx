@@ -111,12 +111,6 @@ function ContactPage() {
             >
               Projects
             </Link>
-            <a
-              href="/#services"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Services
-            </a>
             <Link
               to="/careers"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"

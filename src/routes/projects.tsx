@@ -20,6 +20,18 @@ const portfolioSchema = {
       position: 1,
       item: {
         "@type": "SoftwareApplication",
+        name: "Beruniy",
+        description:
+          "AI dataset company providing production-ready Uzbek speech data for AI training",
+        applicationCategory: "DeveloperApplication",
+        url: "https://beruniy.uz",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "SoftwareApplication",
         name: "Nexus Platform",
         description:
           "Enterprise SaaS platform for resource planning with 100K+ daily users",
@@ -28,7 +40,7 @@ const portfolioSchema = {
     },
     {
       "@type": "ListItem",
-      position: 2,
+      position: 3,
       item: {
         "@type": "SoftwareApplication",
         name: "Quantum Analytics",
@@ -39,7 +51,7 @@ const portfolioSchema = {
     },
     {
       "@type": "ListItem",
-      position: 3,
+      position: 4,
       item: {
         "@type": "SoftwareApplication",
         name: "Pulse Health",
@@ -49,7 +61,7 @@ const portfolioSchema = {
     },
     {
       "@type": "ListItem",
-      position: 4,
+      position: 5,
       item: {
         "@type": "SoftwareApplication",
         name: "Velocity Commerce",
@@ -60,7 +72,7 @@ const portfolioSchema = {
     },
     {
       "@type": "ListItem",
-      position: 5,
+      position: 6,
       item: {
         "@type": "SoftwareApplication",
         name: "Synapse AI",
@@ -70,7 +82,7 @@ const portfolioSchema = {
     },
     {
       "@type": "ListItem",
-      position: 6,
+      position: 7,
       item: {
         "@type": "SoftwareApplication",
         name: "Atlas Maps",
@@ -99,6 +111,18 @@ export const Route = createFileRoute("/projects")({
 const projects = [
   {
     id: "01",
+    title: "Beruniy",
+    description:
+      "AI dataset company providing production-ready Uzbek speech data. From native Uzbek podcasts to verified, segmented, multi-speaker datasets engineered for AI training.",
+    tags: ["AI/ML", "Dataset", "Speech Recognition", "Uzbek Language"],
+    year: "2025",
+    image: "/Screenshot From 2026-03-28 19-25-38.png",
+    link: "https://beruniy.uz",
+    color:
+      "bg-gradient-to-br from-violet-50 to-purple-100 dark:from-violet-950/30 dark:to-purple-900/30",
+  },
+  {
+    id: "02",
     title: "Nexus Platform",
     description:
       "A comprehensive SaaS platform for enterprise resource planning. Built with React, Node.js, and PostgreSQL. Handles 100K+ daily active users with sub-100ms response times.",
@@ -109,7 +133,7 @@ const projects = [
       "bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/30 dark:to-indigo-900/30",
   },
   {
-    id: "02",
+    id: "03",
     title: "Quantum Analytics",
     description:
       "Real-time data analytics dashboard for financial institutions. Processes millions of transactions per second with advanced visualization capabilities.",
@@ -120,7 +144,7 @@ const projects = [
       "bg-gradient-to-br from-slate-100 to-zinc-200 dark:from-slate-900 dark:to-zinc-950",
   },
   {
-    id: "03",
+    id: "04",
     title: "Pulse Health",
     description:
       "Healthcare management system connecting patients, providers, and insurers. HIPAA-compliant with end-to-end encryption and audit logging.",
@@ -131,7 +155,7 @@ const projects = [
       "bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-emerald-950/30 dark:to-teal-900/30",
   },
   {
-    id: "04",
+    id: "05",
     title: "Velocity Commerce",
     description:
       "High-performance e-commerce platform with real-time inventory management. Processes 50K+ orders daily with 99.99% uptime.",
@@ -142,7 +166,7 @@ const projects = [
       "bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-950/30 dark:to-amber-900/30",
   },
   {
-    id: "05",
+    id: "06",
     title: "Synapse AI",
     description:
       "Machine learning infrastructure platform for model training and deployment. Reduces ML pipeline setup time from weeks to hours.",
@@ -153,7 +177,7 @@ const projects = [
       "bg-gradient-to-br from-violet-50 to-purple-100 dark:from-violet-950/30 dark:to-purple-900/30",
   },
   {
-    id: "06",
+    id: "07",
     title: "Atlas Maps",
     description:
       "Custom mapping and geospatial analysis platform. Renders millions of data points with smooth interactions and custom tile servers.",
@@ -189,12 +213,6 @@ function ProjectsPage() {
             >
               Projects
             </Link>
-            <a
-              href="/#services"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Services
-            </a>
             <Link
               to="/careers"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -210,7 +228,7 @@ function ProjectsPage() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Button size="sm">Start Project</Button>
+            {/* Start Project button removed */}
           </div>
         </Container>
       </header>

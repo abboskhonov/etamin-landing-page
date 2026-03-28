@@ -136,12 +136,6 @@ function LandingPage() {
             >
               Projects
             </Link>
-            <a
-              href="/#services"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Services
-            </a>
             <Link
               to="/careers"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -157,7 +151,7 @@ function LandingPage() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Button size="sm">Start Project</Button>
+            {/* Start Project button removed */}
           </div>
         </Container>
       </header>
