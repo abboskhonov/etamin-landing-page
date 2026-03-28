@@ -1,6 +1,6 @@
 import { ArrowRight, Sparkles } from "lucide-react"
 
-import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute, Link } from "@tanstack/react-router"
 
 import { Badge } from "@/components/Badge"
 import { Container } from "@/components/Container"
@@ -8,9 +8,92 @@ import { ProjectCard } from "@/components/ProjectCard"
 import { Section } from "@/components/Section"
 import { SectionHeader } from "@/components/SectionHeader"
 import { Button } from "@/components/ui/button"
+import { createRouteHead } from "@/lib/seo"
+
+// ItemList Schema for portfolio
+const portfolioSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "Nexus Platform",
+        description:
+          "Enterprise SaaS platform for resource planning with 100K+ daily users",
+        applicationCategory: "BusinessApplication",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "Quantum Analytics",
+        description:
+          "Real-time data analytics dashboard for financial institutions",
+        applicationCategory: "FinanceApplication",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "Pulse Health",
+        description: "HIPAA-compliant healthcare management system",
+        applicationCategory: "HealthApplication",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "Velocity Commerce",
+        description:
+          "High-performance e-commerce platform processing 50K+ orders daily",
+        applicationCategory: "BusinessApplication",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 5,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "Synapse AI",
+        description: "Machine learning infrastructure platform",
+        applicationCategory: "DeveloperApplication",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 6,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "Atlas Maps",
+        description: "Geospatial mapping and analysis platform",
+        applicationCategory: "TravelApplication",
+      },
+    },
+  ],
+}
 
 export const Route = createFileRoute("/projects")({
   component: ProjectsPage,
+  head: () =>
+    createRouteHead({
+      title: "Our Projects — Software Development Portfolio | Etamin",
+      description:
+        "Explore our portfolio of 50+ successful software projects. Enterprise SaaS platforms, fintech solutions, healthcare systems, and custom software development case studies.",
+      keywords:
+        "software development portfolio, case studies, SaaS projects, enterprise software examples, custom software solutions, React projects, successful software development",
+      ogType: "website",
+      canonical: "https://etamin.uz/projects",
+      structuredData: portfolioSchema,
+    }),
 })
 
 const projects = [
@@ -21,6 +104,9 @@ const projects = [
       "A comprehensive SaaS platform for enterprise resource planning. Built with React, Node.js, and PostgreSQL. Handles 100K+ daily active users with sub-100ms response times.",
     tags: ["React", "Node.js", "PostgreSQL", "AWS"],
     year: "2024",
+    image: "/assets/images/project-nexus-platform.webp",
+    color:
+      "bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/30 dark:to-indigo-900/30",
   },
   {
     id: "02",
@@ -29,6 +115,9 @@ const projects = [
       "Real-time data analytics dashboard for financial institutions. Processes millions of transactions per second with advanced visualization capabilities.",
     tags: ["TypeScript", "Python", "ClickHouse", "D3.js"],
     year: "2024",
+    image: "/assets/images/project-quantum-analytics.webp",
+    color:
+      "bg-gradient-to-br from-slate-100 to-zinc-200 dark:from-slate-900 dark:to-zinc-950",
   },
   {
     id: "03",
@@ -37,6 +126,9 @@ const projects = [
       "Healthcare management system connecting patients, providers, and insurers. HIPAA-compliant with end-to-end encryption and audit logging.",
     tags: ["Next.js", "Go", "MongoDB", "Kubernetes"],
     year: "2023",
+    image: "/assets/images/project-pulse-health.webp",
+    color:
+      "bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-emerald-950/30 dark:to-teal-900/30",
   },
   {
     id: "04",
@@ -45,6 +137,9 @@ const projects = [
       "High-performance e-commerce platform with real-time inventory management. Processes 50K+ orders daily with 99.99% uptime.",
     tags: ["Remix", "Rust", "Redis", "Stripe"],
     year: "2023",
+    image: "/assets/images/project-velocity-commerce.webp",
+    color:
+      "bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-950/30 dark:to-amber-900/30",
   },
   {
     id: "05",
@@ -53,6 +148,9 @@ const projects = [
       "Machine learning infrastructure platform for model training and deployment. Reduces ML pipeline setup time from weeks to hours.",
     tags: ["Python", "TensorFlow", "Ray", "GCP"],
     year: "2023",
+    image: "/assets/images/project-synapse-ai.webp",
+    color:
+      "bg-gradient-to-br from-violet-50 to-purple-100 dark:from-violet-950/30 dark:to-purple-900/30",
   },
   {
     id: "06",
@@ -61,6 +159,9 @@ const projects = [
       "Custom mapping and geospatial analysis platform. Renders millions of data points with smooth interactions and custom tile servers.",
     tags: ["Vue.js", "Mapbox", "PostGIS", "FastAPI"],
     year: "2022",
+    image: "/assets/images/project-atlas-maps.webp",
+    color:
+      "bg-gradient-to-br from-cyan-50 to-sky-100 dark:from-cyan-950/30 dark:to-sky-900/30",
   },
 ]
 
@@ -76,27 +177,36 @@ function ProjectsPage() {
           </a>
 
           <nav className="hidden items-center gap-8 md:flex">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Home
-            </a>
-            <a href="/projects" className="text-sm font-medium text-foreground">
+            </Link>
+            <Link
+              to="/projects"
+              className="text-sm font-medium text-foreground"
+            >
               Projects
-            </a>
+            </Link>
             <a
               href="/#services"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Services
             </a>
-            <a
-              href="/careers"
+            <Link
+              to="/careers"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Careers
-            </a>
+            </Link>
+            <Link
+              to="/contact"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Contact
+            </Link>
           </nav>
 
           <div className="flex items-center gap-4">

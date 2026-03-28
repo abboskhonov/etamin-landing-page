@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute, Link } from "@tanstack/react-router"
 import {
   ArrowRight,
   Code2,
@@ -17,8 +17,60 @@ import { Section } from "@/components/Section"
 import { SectionHeader } from "@/components/SectionHeader"
 import { Button } from "@/components/ui/button"
 import { ChatWidget } from "@/components/ChatWidget"
+import { FAQSection } from "@/components/FAQSection"
+import { createRouteHead } from "@/lib/seo"
 
-export const Route = createFileRoute("/")({ component: LandingPage })
+// Local Business Schema for homepage
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Etamin Software Development",
+  url: "https://etamin.uz",
+  logo: "https://etamin.uz/android-chrome-512x512.png",
+  description:
+    "Premium software development company specializing in enterprise applications, SaaS platforms, and digital transformation solutions.",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "UZ",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "41.2995",
+    longitude: "69.2401",
+  },
+  telephone: "+998-XX-XXX-XXXX",
+  email: "hello@etamin.uz",
+  priceRange: "$$$",
+  openingHours: "Mo-Fr 09:00-18:00",
+  serviceType: [
+    "Custom Software Development",
+    "Enterprise Software Solutions",
+    "SaaS Development",
+    "Cloud Infrastructure",
+    "API Development",
+    "System Architecture",
+  ],
+  areaServed: {
+    "@type": "Country",
+    name: "Worldwide",
+  },
+}
+
+export const Route = createFileRoute("/")({
+  component: LandingPage,
+  head: () =>
+    createRouteHead({
+      title:
+        "Etamin — Premium Software Development Studio | Enterprise Solutions",
+      description:
+        "Leading software development company in Uzbekistan. We build high-performance enterprise applications, SaaS platforms, and custom software solutions for ambitious teams worldwide.",
+      keywords:
+        "software development Uzbekistan, enterprise software, custom software development, SaaS development, React development, Node.js, cloud solutions, digital transformation, web applications, mobile apps, software company Tashkent",
+      ogType: "website",
+      canonical: "https://etamin.uz",
+      structuredData: localBusinessSchema,
+    }),
+})
 
 const capabilities = [
   {
@@ -75,30 +127,33 @@ function LandingPage() {
           </a>
 
           <nav className="hidden items-center gap-8 md:flex">
-            <a
-              href="/projects"
+            <Link to="/" className="text-sm font-medium text-foreground">
+              Home
+            </Link>
+            <Link
+              to="/projects"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Projects
-            </a>
+            </Link>
             <a
-              href="#services"
+              href="/#services"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Services
             </a>
-            <a
-              href="#about"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              About
-            </a>
-            <a
-              href="/careers"
+            <Link
+              to="/careers"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Careers
-            </a>
+            </Link>
+            <Link
+              to="/contact"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Contact
+            </Link>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -212,63 +267,139 @@ function LandingPage() {
             align="center"
           />
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {/* Card 1 - Expertise */}
-            <div className="group flex flex-col justify-between border border-border bg-card/50 p-8 transition-colors hover:bg-card">
-              <div>
-                <Target
-                  className="mb-6 size-6 text-muted-foreground"
-                  strokeWidth={1.5}
-                />
-                <h3 className="mb-2 text-lg font-medium">Deep Expertise</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
+            <div className="group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-background to-muted/50 p-8 transition-all duration-500 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5">
+              <div className="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-primary/5 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-primary/10" />
+
+              <div className="relative">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <Target className="size-7" strokeWidth={1.5} />
+                </div>
+
+                <h3 className="mb-3 text-xl font-semibold tracking-tight">
+                  Deep Expertise
+                </h3>
+                <p className="text-[15px] leading-relaxed text-muted-foreground">
                   10+ years building enterprise systems. Complex problem solving
                   across fintech, healthcare, and AI.
                 </p>
               </div>
-              <div className="mt-8 flex items-center justify-between border-t border-border pt-6 font-mono text-xs text-muted-foreground">
-                <span>01</span>
-                <ArrowRight className="size-3 -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+
+              <div className="relative mt-8 flex items-center justify-between border-t border-border/50 pt-6">
+                <span className="font-mono text-sm font-medium text-muted-foreground">
+                  01
+                </span>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                  <ArrowRight className="size-4 -translate-x-4 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+                </div>
               </div>
             </div>
 
             {/* Card 2 - Delivery */}
-            <div className="group flex flex-col justify-between border border-border bg-card/50 p-8 transition-colors hover:bg-card">
-              <div>
-                <Rocket
-                  className="mb-6 size-6 text-muted-foreground"
-                  strokeWidth={1.5}
-                />
-                <h3 className="mb-2 text-lg font-medium">Rapid Delivery</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
+            <div className="group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-background to-muted/50 p-8 transition-all duration-500 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5">
+              <div className="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-primary/5 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-primary/10" />
+
+              <div className="relative">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <Rocket className="size-7" strokeWidth={1.5} />
+                </div>
+
+                <h3 className="mb-3 text-xl font-semibold tracking-tight">
+                  Rapid Delivery
+                </h3>
+                <p className="text-[15px] leading-relaxed text-muted-foreground">
                   Agile methodologies with battle-tested architectures. Ship
                   fast without compromising quality.
                 </p>
               </div>
-              <div className="mt-8 flex items-center justify-between border-t border-border pt-6 font-mono text-xs text-muted-foreground">
-                <span>02</span>
-                <ArrowRight className="size-3 -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+
+              <div className="relative mt-8 flex items-center justify-between border-t border-border/50 pt-6">
+                <span className="font-mono text-sm font-medium text-muted-foreground">
+                  02
+                </span>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                  <ArrowRight className="size-4 -translate-x-4 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+                </div>
               </div>
             </div>
 
             {/* Card 3 - Partnership */}
-            <div className="group flex flex-col justify-between border border-border bg-card/50 p-8 transition-colors hover:bg-card">
-              <div>
-                <Users
-                  className="mb-6 size-6 text-muted-foreground"
-                  strokeWidth={1.5}
-                />
-                <h3 className="mb-2 text-lg font-medium">True Partnership</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
+            <div className="group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-background to-muted/50 p-8 transition-all duration-500 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5">
+              <div className="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-primary/5 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-primary/10" />
+
+              <div className="relative">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <Users className="size-7" strokeWidth={1.5} />
+                </div>
+
+                <h3 className="mb-3 text-xl font-semibold tracking-tight">
+                  True Partnership
+                </h3>
+                <p className="text-[15px] leading-relaxed text-muted-foreground">
                   We embed in your team. Strategic thinking, transparent
                   communication, shared goals.
                 </p>
               </div>
-              <div className="mt-8 flex items-center justify-between border-t border-border pt-6 font-mono text-xs text-muted-foreground">
-                <span>03</span>
-                <ArrowRight className="size-3 -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+
+              <div className="relative mt-8 flex items-center justify-between border-t border-border/50 pt-6">
+                <span className="font-mono text-sm font-medium text-muted-foreground">
+                  03
+                </span>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                  <ArrowRight className="size-4 -translate-x-4 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+                </div>
               </div>
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* FAQ Section */}
+      <Section id="faq" variant="muted" spacing="lg">
+        <Container>
+          <SectionHeader
+            label="FAQ"
+            title="Common questions"
+            description="Everything you need to know about working with us."
+            align="center"
+          />
+
+          <div className="mx-auto max-w-3xl">
+            <FAQSection
+              items={[
+                {
+                  question: "What is your development process?",
+                  answer:
+                    "We follow an agile methodology with two-week sprints. Each project starts with a discovery phase where we understand your requirements, followed by design, development, testing, and deployment. We maintain transparent communication throughout with regular check-ins and demos.",
+                },
+                {
+                  question: "How long does a typical project take?",
+                  answer:
+                    "Project timelines vary based on complexity. A simple MVP typically takes 6-8 weeks, while more complex enterprise systems can take 3-6 months. We provide detailed timelines during our initial consultation and keep you updated on progress throughout.",
+                },
+                {
+                  question: "What technologies do you work with?",
+                  answer:
+                    "We specialize in modern web technologies including React, Next.js, Node.js, Python, PostgreSQL, and cloud platforms like AWS and GCP. We choose the best tech stack based on your specific requirements, scalability needs, and team capabilities.",
+                },
+                {
+                  question: "Do you provide ongoing support?",
+                  answer:
+                    "Yes, we offer comprehensive maintenance and support packages. This includes bug fixes, security updates, performance monitoring, and feature enhancements. We aim to build long-term partnerships with our clients.",
+                },
+                {
+                  question: "How do you handle project communication?",
+                  answer:
+                    "We use a combination of Slack/Teams for daily communication, weekly video calls for sprint reviews, and project management tools like Linear or Jira for tracking. You will have a dedicated project manager as your main point of contact.",
+                },
+                {
+                  question: "What is your pricing model?",
+                  answer:
+                    "We offer both fixed-price and time-and-materials models depending on project requirements. Fixed-price works well for defined scopes, while time-and-materials offers flexibility for evolving projects. We provide transparent pricing with no hidden costs.",
+                },
+              ]}
+            />
           </div>
         </Container>
       </Section>

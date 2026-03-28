@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://etamin.uz/</loc>
+    <lastmod>2024-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://etamin.uz/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://etamin.uz/ru"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://etamin.uz/uz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://etamin.uz/"/>
+    <image:image>
+      <image:loc>https://etamin.uz/android-chrome-512x512.png</image:loc>
+      <image:title>Etamin Software Development Studio</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Projects Page -->
+  <url>
+    <loc>https://etamin.uz/projects</loc>
+    <lastmod>2024-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://etamin.uz/projects"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://etamin.uz/ru/projects"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://etamin.uz/uz/projects"/>
+  </url>
+  
+  <!-- Careers Page -->
+  <url>
+    <loc>https://etamin.uz/careers</loc>
+    <lastmod>2024-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://etamin.uz/careers"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://etamin.uz/ru/careers"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://etamin.uz/uz/careers"/>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://etamin.uz/contact</loc>
+    <lastmod>2024-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://etamin.uz/contact"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://etamin.uz/ru/contact"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://etamin.uz/uz/contact"/>
+  </url>
+  
+  <!-- Software Engineer Job -->
+  <url>
+    <loc>https://etamin.uz/careers/software-engineer</loc>
+    <lastmod>2024-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://etamin.uz/careers/software-engineer"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://etamin.uz/ru/careers/software-engineer"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://etamin.uz/uz/careers/software-engineer"/>
+  </url>
+  
+</urlset>

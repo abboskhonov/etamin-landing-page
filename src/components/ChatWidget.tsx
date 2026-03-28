@@ -30,11 +30,18 @@ export function ChatWidget() {
   const messagesContainerRef = useRef<HTMLDivElement>(null)
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    if (messagesContainerRef.current && messagesEndRef.current) {
+      // Scroll only within the container, not the whole page
+      messagesContainerRef.current.scrollTop =
+        messagesContainerRef.current.scrollHeight
+    }
   }
 
   useEffect(() => {
-    scrollToBottom()
+    // Only scroll if there are messages beyond the initial greeting
+    if (messages.length > 1) {
+      scrollToBottom()
+    }
   }, [messages, isLoading])
 
   const handleSend = async (content: string) => {

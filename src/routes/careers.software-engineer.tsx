@@ -1,11 +1,66 @@
-import { ArrowLeft } from "lucide-react"
+import { createFileRoute } from "@tanstack/react-router"
+import { ArrowLeft, MapPin, Briefcase, DollarSign } from "lucide-react"
 
 import { Container } from "@/components/Container"
 import { Button } from "@/components/ui/button"
-import { createFileRoute } from "@tanstack/react-router"
+import { createRouteHead } from "@/lib/seo"
+
+// JobPosting Schema
+const jobPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  title: "Software Engineer",
+  description:
+    "Join Etamin as a Software Engineer in Namangan. Work on high-impact projects using modern technologies like React, Node.js, and cloud infrastructure. Onsite position with competitive compensation.",
+  datePosted: "2024-03-28",
+  validThrough: "2024-12-31",
+  employmentType: "FULL_TIME",
+  jobLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "UZ",
+      addressLocality: "Namangan",
+      addressRegion: "Namangan Region",
+      streetAddress: "Center City",
+    },
+  },
+  applicantLocationRequirements: {
+    "@type": "Country",
+    name: "Uzbekistan",
+  },
+  jobLocationType: "ONSITE",
+  hiringOrganization: {
+    "@type": "Organization",
+    name: "Etamin",
+    sameAs: "https://etamin.uz",
+    logo: "https://etamin.uz/android-chrome-512x512.png",
+  },
+  baseSalary: {
+    "@type": "MonetaryAmount",
+    currency: "USD",
+    value: {
+      "@type": "QuantitativeValue",
+      minValue: 50000,
+      maxValue: 120000,
+      unitText: "YEAR",
+    },
+  },
+}
 
 export const Route = createFileRoute("/careers/software-engineer")({
   component: JobDetailPage,
+  head: () =>
+    createRouteHead({
+      title: "Software Engineer Job — Join Etamin in Namangan",
+      description:
+        "Software Engineer position at Etamin. Onsite in Namangan, Uzbekistan. Competitive salary $50K-$120K. Work with React, Node.js, and cloud technologies on enterprise projects. Apply now!",
+      keywords:
+        "software engineer job Namangan, React developer position Uzbekistan, Node.js job Namangan, onsite software engineer, Namangan tech jobs, full stack developer hiring Uzbekistan",
+      ogType: "website",
+      canonical: "https://etamin.uz/careers/software-engineer",
+      structuredData: jobPostingSchema,
+    }),
 })
 
 function JobDetailPage() {
@@ -29,6 +84,21 @@ function JobDetailPage() {
             Software Engineer
           </h1>
 
+          <div className="mt-6 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <MapPin className="size-4" />
+              <span>Namangan, Uzbekistan (Onsite)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Briefcase className="size-4" />
+              <span>Full-time</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <DollarSign className="size-4" />
+              <span>$50K - $120K USD / year</span>
+            </div>
+          </div>
+
           <div className="mt-16 space-y-8 text-lg leading-relaxed text-muted-foreground">
             <div>
               <h2 className="mb-4 text-xl font-semibold text-foreground">
@@ -39,6 +109,20 @@ function JobDetailPage() {
                 high-performance software for ambitious teams who refuse to
                 compromise on quality. No bureaucracy, no meetings that could've
                 been emails. Just pure building.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-xl font-semibold text-foreground">
+                Location
+              </h2>
+              <p>
+                This is an{" "}
+                <strong className="text-foreground">onsite position</strong> in
+                our Namangan office. You'll work alongside our team in modern
+                office space in the heart of Namangan city. We believe in the
+                power of in-person collaboration and building strong team
+                culture.
               </p>
             </div>
 
@@ -112,11 +196,11 @@ function JobDetailPage() {
 
             <div className="rounded-lg border border-border bg-muted/30 p-6">
               <p className="font-medium text-foreground">
-                Remote. Async-first.
+                Onsite in Namangan. Competitive salary + equity.
               </p>
               <p className="mt-2">
-                Competitive salary + equity. The usual benefits. But mostly: a
-                chance to build something real with people who actually care.
+                The usual benefits. But mostly: a chance to build something real
+                with people who actually care, right here in Namangan.
               </p>
             </div>
           </div>

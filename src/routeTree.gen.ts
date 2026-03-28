@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CareersIndexRouteImport } from './routes/careers.index'
@@ -18,6 +19,11 @@ import { Route as CareersSoftwareEngineerRouteImport } from './routes/careers.so
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CareersRoute = CareersRouteImport.update({
@@ -44,12 +50,14 @@ const CareersSoftwareEngineerRoute = CareersSoftwareEngineerRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/careers': typeof CareersRouteWithChildren
+  '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/careers/software-engineer': typeof CareersSoftwareEngineerRoute
   '/careers/': typeof CareersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/careers/software-engineer': typeof CareersSoftwareEngineerRoute
   '/careers': typeof CareersIndexRoute
@@ -58,6 +66,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/careers': typeof CareersRouteWithChildren
+  '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/careers/software-engineer': typeof CareersSoftwareEngineerRoute
   '/careers/': typeof CareersIndexRoute
@@ -67,15 +76,17 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/careers'
+    | '/contact'
     | '/projects'
     | '/careers/software-engineer'
     | '/careers/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/projects' | '/careers/software-engineer' | '/careers'
+  to: '/' | '/contact' | '/projects' | '/careers/software-engineer' | '/careers'
   id:
     | '__root__'
     | '/'
     | '/careers'
+    | '/contact'
     | '/projects'
     | '/careers/software-engineer'
     | '/careers/'
@@ -84,6 +95,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CareersRoute: typeof CareersRouteWithChildren
+  ContactRoute: typeof ContactRoute
   ProjectsRoute: typeof ProjectsRoute
 }
 
@@ -94,6 +106,13 @@ declare module '@tanstack/react-router' {
       path: '/projects'
       fullPath: '/projects'
       preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/careers': {
@@ -143,6 +162,7 @@ const CareersRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CareersRoute: CareersRouteWithChildren,
+  ContactRoute: ContactRoute,
   ProjectsRoute: ProjectsRoute,
 }
 export const routeTree = rootRouteImport

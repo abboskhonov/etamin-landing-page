@@ -1,13 +1,25 @@
-import { Outlet, createFileRoute } from "@tanstack/react-router"
+import { Outlet, createFileRoute, Link } from "@tanstack/react-router"
 import { ArrowRight, Briefcase, MapPin, Sparkles } from "lucide-react"
 
 import { Container } from "@/components/Container"
 import { Section } from "@/components/Section"
 import { SectionHeader } from "@/components/SectionHeader"
 import { Button } from "@/components/ui/button"
+import { createRouteHead } from "@/lib/seo"
 
 export const Route = createFileRoute("/careers")({
   component: CareersLayout,
+  head: () =>
+    createRouteHead({
+      title:
+        "Careers — Join Our Team in Namangan | Etamin Software Development",
+      description:
+        "Join Etamin's world-class software development team in Namangan, Uzbekistan. Competitive salaries and exciting projects. Open positions for engineers, designers, and product managers.",
+      keywords:
+        "software developer jobs Namangan, software jobs Uzbekistan, tech careers Namangan, software engineer hiring, React developer jobs, Node.js jobs, onsite tech positions",
+      ogType: "website",
+      canonical: "https://etamin.uz/careers",
+    }),
 })
 
 const benefits = [
@@ -16,12 +28,12 @@ const benefits = [
     description: "Top-tier salary, equity, and performance bonuses",
   },
   {
-    title: "Remote First",
-    description: "Work from anywhere. We trust you to manage your time",
+    title: "Onsite in Namangan",
+    description: "Work from our modern office in Namangan, Uzbekistan",
   },
   {
-    title: "Flexible Schedule",
-    description: "Async communication. Work when you're most productive",
+    title: "Flexible Hours",
+    description: "Core hours with flexibility for your productivity",
   },
   {
     title: "Learning Budget",
@@ -29,7 +41,7 @@ const benefits = [
   },
   {
     title: "Health & Wellness",
-    description: "Comprehensive health, dental, and vision coverage",
+    description: "Comprehensive health coverage for you and your family",
   },
   {
     title: "Unlimited PTO",
@@ -49,27 +61,33 @@ function CareersLayout() {
           </a>
 
           <nav className="hidden items-center gap-8 md:flex">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Home
-            </a>
-            <a
-              href="/projects"
+            </Link>
+            <Link
+              to="/projects"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Projects
-            </a>
+            </Link>
             <a
               href="/#services"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Services
             </a>
-            <a href="/careers" className="text-sm font-medium text-foreground">
+            <Link to="/careers" className="text-sm font-medium text-foreground">
               Careers
-            </a>
+            </Link>
+            <Link
+              to="/contact"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Contact
+            </Link>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -94,8 +112,8 @@ function CareersLayout() {
                 <span className="text-lg font-medium">Etamin</span>
               </a>
               <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-                Building high-performance software for ambitious teams. Based
-                worldwide, working globally.
+                Building high-performance software for ambitious teams. Based in
+                Namangan, Uzbekistan.
               </p>
             </div>
 
@@ -197,9 +215,9 @@ export function CareersIndex() {
             </h1>
 
             <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
-              We're building a team of exceptional engineers who are passionate
-              about creating high-performance software. Join us and work on
-              challenging projects for ambitious companies worldwide.
+              We're building a team of exceptional engineers in Namangan. Join
+              us and work on challenging projects for ambitious companies
+              worldwide.
             </p>
           </div>
         </Container>
@@ -262,7 +280,7 @@ export function CareersIndex() {
                   <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                     <div className="flex items-center gap-1.5">
                       <MapPin className="size-4" />
-                      <span>Remote (Global)</span>
+                      <span>Onsite — Namangan, Uzbekistan</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <Briefcase className="size-4" />
