@@ -1,6 +1,9 @@
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
 import { TanStackDevtools } from "@tanstack/react-devtools"
+import { ArrowRight } from "lucide-react"
+
+import { Container } from "@/components/Container"
 
 import appCss from "../styles.css?url"
 
@@ -261,6 +264,21 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        {/* Top Banner - Hiring */}
+        <div className="w-full border-b border-border bg-muted py-3">
+          <Container className="flex items-center justify-center">
+            <span className="text-sm text-muted-foreground">
+              We are hiring.
+              <a
+                href="/careers"
+                className="ml-1 font-medium text-foreground hover:underline"
+              >
+                Join our team
+                <ArrowRight className="ml-1 inline-block size-3" />
+              </a>
+            </span>
+          </Container>
+        </div>
         {children}
         <TanStackDevtools
           config={{

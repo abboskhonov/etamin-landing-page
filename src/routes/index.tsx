@@ -102,22 +102,6 @@ const capabilities = [
 function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Top Banner */}
-      <div className="w-full border-b border-border bg-muted py-3">
-        <Container className="flex items-center justify-center">
-          <span className="text-sm text-muted-foreground">
-            We are hiring.
-            <a
-              href="/careers"
-              className="ml-1 font-medium text-foreground hover:underline"
-            >
-              Join our team
-              <ArrowRight className="ml-1 inline-block size-3" />
-            </a>
-          </span>
-        </Container>
-      </div>
-
       {/* Navigation */}
       <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-sm">
         <Container className="flex h-16 items-center justify-between">
