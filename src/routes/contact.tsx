@@ -123,7 +123,7 @@ function ContactPage() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Button size="sm">Start Project</Button>
+            {/* Start Project button removed */}
           </div>
         </Container>
       </header>
