@@ -182,13 +182,17 @@ function LandingPage() {
               </p>
 
               <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" className="gap-2">
-                  View Our Work
-                  <ArrowRight className="size-4" />
-                </Button>
-                <Button variant="outline" size="lg">
-                  Get in Touch
-                </Button>
+                <Link to="/projects">
+                  <Button size="lg" className="gap-2">
+                    View Our Work
+                    <ArrowRight className="size-4" />
+                  </Button>
+                </Link>
+                <Link to="/contact">
+                  <Button variant="outline" size="lg">
+                    Get in Touch
+                  </Button>
+                </Link>
               </div>
 
               {/* Stats */}
