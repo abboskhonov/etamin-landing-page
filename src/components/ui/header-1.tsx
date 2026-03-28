@@ -16,10 +16,6 @@ export function Header() {
       href: "/projects",
     },
     {
-      label: "Services",
-      href: "/#services",
-    },
-    {
       label: "About",
       href: "/#about",
     },
@@ -66,12 +62,6 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <Button
-            size="sm"
-            className="rounded-full bg-[#2563eb] px-5 text-white hover:bg-[#1d4ed8]"
-          >
-            Start Project
-          </Button>
         </div>
         <Button
           size="icon"
@@ -96,11 +86,6 @@ export function Header() {
               {link.label}
             </a>
           ))}
-        </div>
-        <div className="flex flex-col gap-2">
-          <Button className="w-full rounded-full bg-[#2563eb] text-white hover:bg-[#1d4ed8]">
-            Start Project
-          </Button>
         </div>
       </MobileMenu>
     </header>
