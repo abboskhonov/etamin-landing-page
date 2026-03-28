@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
+import { Route as R404RouteImport } from './routes/$404'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CareersIndexRouteImport } from './routes/careers.index'
 import { Route as CareersSoftwareEngineerRouteImport } from './routes/careers.software-engineer'
@@ -29,6 +30,11 @@ const ContactRoute = ContactRouteImport.update({
 const CareersRoute = CareersRouteImport.update({
   id: '/careers',
   path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R404Route = R404RouteImport.update({
+  id: '/$404',
+  path: '/$404',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -49,6 +55,7 @@ const CareersSoftwareEngineerRoute = CareersSoftwareEngineerRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$404': typeof R404Route
   '/careers': typeof CareersRouteWithChildren
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$404': typeof R404Route
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/careers/software-engineer': typeof CareersSoftwareEngineerRoute
@@ -65,6 +73,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$404': typeof R404Route
   '/careers': typeof CareersRouteWithChildren
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
@@ -75,16 +84,24 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$404'
     | '/careers'
     | '/contact'
     | '/projects'
     | '/careers/software-engineer'
     | '/careers/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/projects' | '/careers/software-engineer' | '/careers'
+  to:
+    | '/'
+    | '/$404'
+    | '/contact'
+    | '/projects'
+    | '/careers/software-engineer'
+    | '/careers'
   id:
     | '__root__'
     | '/'
+    | '/$404'
     | '/careers'
     | '/contact'
     | '/projects'
@@ -94,6 +111,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R404Route: typeof R404Route
   CareersRoute: typeof CareersRouteWithChildren
   ContactRoute: typeof ContactRoute
   ProjectsRoute: typeof ProjectsRoute
@@ -120,6 +138,13 @@ declare module '@tanstack/react-router' {
       path: '/careers'
       fullPath: '/careers'
       preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$404': {
+      id: '/$404'
+      path: '/$404'
+      fullPath: '/$404'
+      preLoaderRoute: typeof R404RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -161,6 +186,7 @@ const CareersRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R404Route: R404Route,
   CareersRoute: CareersRouteWithChildren,
   ContactRoute: ContactRoute,
   ProjectsRoute: ProjectsRoute,
