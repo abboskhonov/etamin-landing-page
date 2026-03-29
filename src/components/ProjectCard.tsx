@@ -37,7 +37,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         <CardContent className="p-0">
           <div className="flex flex-col">
             {/* Screenshot/Image Section */}
-            <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-muted to-muted/50">
+            <div className="relative aspect-video w-full overflow-hidden">
               {project.image ? (
                 <img
                   src={project.image}
@@ -90,17 +90,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
               </p>
             </div>
 
-            <div className="flex items-center justify-between border-t border-border px-6 py-4">
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-flex items-center bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            <div className="flex items-center justify-end border-t border-border px-6 py-4">
               <span className="font-mono text-xs text-muted-foreground">
                 {project.year}
               </span>

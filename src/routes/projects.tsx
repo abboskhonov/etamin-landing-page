@@ -32,10 +32,11 @@ const portfolioSchema = {
       position: 2,
       item: {
         "@type": "SoftwareApplication",
-        name: "Nexus Platform",
+        name: "Qiymat",
         description:
-          "Enterprise SaaS platform for resource planning with 100K+ daily users",
-        applicationCategory: "BusinessApplication",
+          "AI startup valuation tool for planning and pricing private companies",
+        applicationCategory: "FinanceApplication",
+        url: "https://qiymat.talabam.com",
       },
     },
     {
@@ -43,51 +44,11 @@ const portfolioSchema = {
       position: 3,
       item: {
         "@type": "SoftwareApplication",
-        name: "Quantum Analytics",
+        name: "Aqlli Aloqa",
         description:
-          "Real-time data analytics dashboard for financial institutions",
-        applicationCategory: "FinanceApplication",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
-      item: {
-        "@type": "SoftwareApplication",
-        name: "Pulse Health",
-        description: "HIPAA-compliant healthcare management system",
-        applicationCategory: "HealthApplication",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 5,
-      item: {
-        "@type": "SoftwareApplication",
-        name: "Velocity Commerce",
-        description:
-          "High-performance e-commerce platform processing 50K+ orders daily",
+          "AI-powered call center with AI agents for customer support, lead generation, and 24/7 service",
         applicationCategory: "BusinessApplication",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 6,
-      item: {
-        "@type": "SoftwareApplication",
-        name: "Synapse AI",
-        description: "Machine learning infrastructure platform",
-        applicationCategory: "DeveloperApplication",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 7,
-      item: {
-        "@type": "SoftwareApplication",
-        name: "Atlas Maps",
-        description: "Geospatial mapping and analysis platform",
-        applicationCategory: "TravelApplication",
+        url: "https://aqllialoqa.uz",
       },
     },
   ],
@@ -116,76 +77,34 @@ const projects = [
       "AI dataset company providing production-ready Uzbek speech data. From native Uzbek podcasts to verified, segmented, multi-speaker datasets engineered for AI training.",
     tags: ["AI/ML", "Dataset", "Speech Recognition", "Uzbek Language"],
     year: "2025",
-    image: "/Screenshot From 2026-03-28 19-25-38.png",
+    image: "/beruniy.webp",
     link: "https://beruniy.uz",
     color:
       "bg-gradient-to-br from-violet-50 to-purple-100 dark:from-violet-950/30 dark:to-purple-900/30",
   },
   {
     id: "02",
-    title: "Nexus Platform",
+    title: "Qiymat",
     description:
-      "A comprehensive SaaS platform for enterprise resource planning. Built with React, Node.js, and PostgreSQL. Handles 100K+ daily active users with sub-100ms response times.",
-    tags: ["React", "Node.js", "PostgreSQL", "AWS"],
-    year: "2024",
-    image: "/assets/images/project-nexus-platform.webp",
-    color:
-      "bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/30 dark:to-indigo-900/30",
-  },
-  {
-    id: "03",
-    title: "Quantum Analytics",
-    description:
-      "Real-time data analytics dashboard for financial institutions. Processes millions of transactions per second with advanced visualization capabilities.",
-    tags: ["TypeScript", "Python", "ClickHouse", "D3.js"],
-    year: "2024",
-    image: "/assets/images/project-quantum-analytics.webp",
+      "AI startup valuation tool purpose-built for planning and pricing private companies. The valuation intelligence system for funds and agents, designed for the AI era.",
+    tags: ["AI/ML", "Fintech", "Valuation", "Private Markets"],
+    year: "2025",
+    image: "/qiymat.webp",
+    link: "https://qiymat.talabam.com",
     color:
       "bg-gradient-to-br from-slate-100 to-zinc-200 dark:from-slate-900 dark:to-zinc-950",
   },
   {
-    id: "04",
-    title: "Pulse Health",
+    id: "03",
+    title: "Aqlli Aloqa",
     description:
-      "Healthcare management system connecting patients, providers, and insurers. HIPAA-compliant with end-to-end encryption and audit logging.",
-    tags: ["Next.js", "Go", "MongoDB", "Kubernetes"],
-    year: "2023",
-    image: "/assets/images/project-pulse-health.webp",
+      "AI-powered call center with AI voice agents for customer support. Automates customer calls in Uzbek language with 24/7 availability, lead generation, and real-time sentiment analysis.",
+    tags: ["AI/ML", "Customer Support", "Voice AI", "Uzbek Language"],
+    year: "2025",
+    image: "/aqllialoqa.webp",
+    link: "https://aqllialoqa.uz",
     color:
-      "bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-emerald-950/30 dark:to-teal-900/30",
-  },
-  {
-    id: "05",
-    title: "Velocity Commerce",
-    description:
-      "High-performance e-commerce platform with real-time inventory management. Processes 50K+ orders daily with 99.99% uptime.",
-    tags: ["Remix", "Rust", "Redis", "Stripe"],
-    year: "2023",
-    image: "/assets/images/project-velocity-commerce.webp",
-    color:
-      "bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-950/30 dark:to-amber-900/30",
-  },
-  {
-    id: "06",
-    title: "Synapse AI",
-    description:
-      "Machine learning infrastructure platform for model training and deployment. Reduces ML pipeline setup time from weeks to hours.",
-    tags: ["Python", "TensorFlow", "Ray", "GCP"],
-    year: "2023",
-    image: "/assets/images/project-synapse-ai.webp",
-    color:
-      "bg-gradient-to-br from-violet-50 to-purple-100 dark:from-violet-950/30 dark:to-purple-900/30",
-  },
-  {
-    id: "07",
-    title: "Atlas Maps",
-    description:
-      "Custom mapping and geospatial analysis platform. Renders millions of data points with smooth interactions and custom tile servers.",
-    tags: ["Vue.js", "Mapbox", "PostGIS", "FastAPI"],
-    year: "2022",
-    image: "/assets/images/project-atlas-maps.webp",
-    color:
-      "bg-gradient-to-br from-cyan-50 to-sky-100 dark:from-cyan-950/30 dark:to-sky-900/30",
+      "bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/30 dark:to-indigo-900/30",
   },
 ]
 
