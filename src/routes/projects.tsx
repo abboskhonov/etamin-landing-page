@@ -8,64 +8,103 @@ import { ProjectCard } from "@/components/ProjectCard"
 import { Section } from "@/components/Section"
 import { SectionHeader } from "@/components/SectionHeader"
 import { Button } from "@/components/ui/button"
-import { createRouteHead } from "@/lib/seo"
+import {
+  createRouteHead,
+  generateBreadcrumb,
+  generateAlternateLanguages,
+} from "@/lib/seo"
 
-// ItemList Schema for portfolio
+// CollectionPage Schema for portfolio with complete details
 const portfolioSchema = {
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      item: {
-        "@type": "SoftwareApplication",
-        name: "Beruniy",
-        description:
-          "AI dataset company providing production-ready Uzbek speech data for AI training",
-        applicationCategory: "DeveloperApplication",
-        url: "https://beruniy.uz",
+  "@type": "CollectionPage",
+  name: "Etamin Project Portfolio - Software Development Case Studies",
+  description:
+    "Explore our portfolio of successful AI-powered software projects. Enterprise SaaS platforms, fintech solutions, AI agents, and custom software development case studies.",
+  url: "https://etamin.uz/projects",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "Etamin",
+    url: "https://etamin.uz",
+  },
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "SoftwareApplication",
+          name: "Beruniy",
+          description:
+            "AI dataset company providing production-ready Uzbek speech data for AI training",
+          applicationCategory: "DeveloperApplication",
+          url: "https://beruniy.uz",
+          image: "https://etamin.uz/beruniy.webp",
+          operatingSystem: "Any",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+        },
       },
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      item: {
-        "@type": "SoftwareApplication",
-        name: "Qiymat",
-        description:
-          "AI startup valuation tool for planning and pricing private companies",
-        applicationCategory: "FinanceApplication",
-        url: "https://qiymat.talabam.com",
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "SoftwareApplication",
+          name: "Qiymat",
+          description:
+            "AI startup valuation tool for planning and pricing private companies",
+          applicationCategory: "FinanceApplication",
+          url: "https://qiymat.talabam.com",
+          image: "https://etamin.uz/qiymat.webp",
+          operatingSystem: "Any",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+        },
       },
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      item: {
-        "@type": "SoftwareApplication",
-        name: "Aqlli Aloqa",
-        description:
-          "AI-powered call center with AI agents for customer support, lead generation, and 24/7 service",
-        applicationCategory: "BusinessApplication",
-        url: "https://aqllialoqa.uz",
+      {
+        "@type": "ListItem",
+        position: 3,
+        item: {
+          "@type": "SoftwareApplication",
+          name: "Aqlli Aloqa",
+          description:
+            "AI-powered call center with AI agents for customer support, lead generation, and 24/7 service",
+          applicationCategory: "BusinessApplication",
+          url: "https://aqllialoqa.uz",
+          image: "https://etamin.uz/aqllialoqa.webp",
+          operatingSystem: "Any",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+        },
       },
-    },
-  ],
+    ],
+  },
 }
 
 export const Route = createFileRoute("/projects")({
   component: ProjectsPage,
   head: () =>
     createRouteHead({
-      title: "Our Projects — Software Development Portfolio | Etamin",
+      title: "Our Projects — AI Software Development Portfolio | Etamin",
       description:
-        "Explore our portfolio of 50+ successful software projects. Enterprise SaaS platforms, fintech solutions, healthcare systems, and custom software development case studies.",
+        "Explore our portfolio of successful AI-powered software projects. Enterprise SaaS, fintech solutions, AI voice agents, and custom software development case studies from Namangan, Uzbekistan.",
       keywords:
-        "software development portfolio, case studies, SaaS projects, enterprise software examples, custom software solutions, React projects, successful software development",
+        "software development portfolio, AI projects, SaaS development case studies, enterprise software examples, custom software solutions, Uzbekistan software company, AI voice agents, fintech development",
       ogType: "website",
       canonical: "https://etamin.uz/projects",
       structuredData: portfolioSchema,
+      breadcrumb: generateBreadcrumb("Projects", "https://etamin.uz/projects"),
+      alternateLanguages: generateAlternateLanguages("/projects"),
     }),
 })
 

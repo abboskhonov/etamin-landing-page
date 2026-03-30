@@ -3,18 +3,30 @@ import { ArrowLeft, MapPin, Briefcase } from "lucide-react"
 
 import { Container } from "@/components/Container"
 import { Button } from "@/components/ui/button"
-import { createRouteHead } from "@/lib/seo"
+import {
+  createRouteHead,
+  generateBreadcrumb,
+  generateAlternateLanguages,
+} from "@/lib/seo"
 
-// JobPosting Schema
+// Enhanced JobPosting Schema with complete details
 const jobPostingSchema = {
   "@context": "https://schema.org",
   "@type": "JobPosting",
   title: "Software Engineer",
   description:
-    "Join Etamin as a Software Engineer in Namangan. Work on high-impact projects using modern technologies like React, Node.js, and cloud infrastructure. Onsite position with competitive compensation.",
-  datePosted: "2024-03-28",
-  validThrough: "2024-12-31",
+    "Join Etamin as a Software Engineer in Namangan. Work on high-impact AI-powered projects using React, TypeScript, Python, and cloud infrastructure. Onsite position with competitive benefits.",
+  datePosted: "2025-03-30",
+  validThrough: "2025-12-31",
   employmentType: "FULL_TIME",
+  hiringOrganization: {
+    "@type": "Organization",
+    name: "Etamin",
+    sameAs: "https://etamin.uz",
+    logo: "https://etamin.uz/android-chrome-512x512.png",
+    url: "https://etamin.uz",
+    description: "AI-powered software development studio",
+  },
   jobLocation: {
     "@type": "Place",
     address: {
@@ -24,32 +36,47 @@ const jobPostingSchema = {
       addressRegion: "Namangan Region",
       streetAddress: "Center City",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "40.9983",
+      longitude: "71.6726",
+    },
   },
   applicantLocationRequirements: {
     "@type": "Country",
     name: "Uzbekistan",
   },
   jobLocationType: "ONSITE",
-  hiringOrganization: {
-    "@type": "Organization",
-    name: "Etamin",
-    sameAs: "https://etamin.uz",
-    logo: "https://etamin.uz/android-chrome-512x512.png",
-  },
+  skills: "React, TypeScript, Python, AI/ML, Git, Cloud",
+  experienceRequirements: "1+ years of professional experience",
+  qualifications: "React, TypeScript, Python, AI tools experience",
+  responsibilities:
+    "Build AI-powered features, work with modern tech stack, ship fast",
+  industry: "Software Development",
+  occupationalCategory: "Software Engineer",
+  workHours: "Full-time, flexible hours",
 }
 
 export const Route = createFileRoute("/careers/software-engineer")({
   component: JobDetailPage,
   head: () =>
     createRouteHead({
-      title: "Software Engineer Job — Join Etamin in Namangan",
+      title: "Software Engineer — Join Our Team in Namangan | Etamin",
       description:
-        "Software Engineer position at Etamin. Onsite in Namangan, Uzbekistan. Work with React, Node.js, and cloud technologies on enterprise projects. Apply now!",
+        "Software Engineer position at Etamin. Onsite in Namangan, Uzbekistan. Work with React, TypeScript, Python on AI-powered projects. Apply now!",
       keywords:
-        "software engineer job Namangan, React developer position Uzbekistan, Node.js job Namangan, onsite software engineer, Namangan tech jobs, full stack developer hiring Uzbekistan",
+        "software engineer job Namangan, React developer position Uzbekistan, Python job Namangan, onsite software engineer, Namangan tech jobs, AI developer hiring Uzbekistan",
       ogType: "website",
       canonical: "https://etamin.uz/careers/software-engineer",
       structuredData: jobPostingSchema,
+      breadcrumb: generateBreadcrumb(
+        "Software Engineer",
+        "https://etamin.uz/careers/software-engineer",
+        { name: "Careers", url: "https://etamin.uz/careers" }
+      ),
+      alternateLanguages: generateAlternateLanguages(
+        "/careers/software-engineer"
+      ),
     }),
 })
 

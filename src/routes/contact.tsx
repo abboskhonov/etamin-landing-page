@@ -5,20 +5,28 @@ import { ArrowRight, Mail, MapPin, Phone, Send, Clock } from "lucide-react"
 import { Container } from "@/components/Container"
 import { Section } from "@/components/Section"
 import { Button } from "@/components/ui/button"
-import { createRouteHead } from "@/lib/seo"
+import {
+  createRouteHead,
+  generateBreadcrumb,
+  generateAlternateLanguages,
+} from "@/lib/seo"
 
-// ContactPage Schema
+// ContactPage Schema with complete details
 const contactPageSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  name: "Contact Etamin",
-  description: "Get in touch with Etamin software development studio",
+  name: "Contact Etamin - Software Development Studio",
+  description:
+    "Get in touch with Etamin software development studio in Namangan, Uzbekistan. Request a quote, start your project, or just say hello.",
   url: "https://etamin.uz/contact",
   mainEntity: {
     "@type": "Organization",
     name: "Etamin",
+    url: "https://etamin.uz",
+    logo: "https://etamin.uz/android-chrome-512x512.png",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Center City",
       addressCountry: "UZ",
       addressLocality: "Namangan",
       addressRegion: "Namangan Region",
@@ -26,8 +34,14 @@ const contactPageSchema = {
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+998-90-663-44-46",
+      email: "cameron@etamin.digital",
       contactType: "sales",
       availableLanguage: ["English", "Russian", "Uzbek"],
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "40.9983",
+      longitude: "71.6726",
     },
   },
 }
@@ -36,14 +50,16 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
   head: () =>
     createRouteHead({
-      title: "Contact Us — Let's Build Something Great | Etamin",
+      title: "Contact Us — Start Your Project | Etamin Software Development",
       description:
-        "Get in touch with Etamin. Software development studio in Namangan, Uzbekistan. Start your project, request a quote, or just say hello.",
+        "Get in touch with Etamin software development studio in Namangan, Uzbekistan. Ready to build your next project? Call +998 90 663 44 46 or email cameron@etamin.digital",
       keywords:
-        "contact Etamin, software development quote, hire developers Uzbekistan, Namangan software company, start project",
+        "contact Etamin, software development quote, hire developers Uzbekistan, Namangan software company, start project, AI development, web development, mobile app development",
       ogType: "website",
       canonical: "https://etamin.uz/contact",
       structuredData: contactPageSchema,
+      breadcrumb: generateBreadcrumb("Contact", "https://etamin.uz/contact"),
+      alternateLanguages: generateAlternateLanguages("/contact"),
     }),
 })
 

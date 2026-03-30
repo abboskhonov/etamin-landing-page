@@ -5,20 +5,68 @@ import { Container } from "@/components/Container"
 import { Section } from "@/components/Section"
 import { SectionHeader } from "@/components/SectionHeader"
 import { Button } from "@/components/ui/button"
-import { createRouteHead } from "@/lib/seo"
+import {
+  createRouteHead,
+  generateBreadcrumb,
+  generateAlternateLanguages,
+} from "@/lib/seo"
+
+// JobPosting Schema for Software Engineer position
+const jobPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  title: "Software Engineer",
+  description:
+    "Join Etamin's world-class software development team in Namangan, Uzbekistan. Work with React, TypeScript, Python on AI-powered projects. Onsite position with competitive benefits.",
+  datePosted: "2025-03-30",
+  validThrough: "2025-12-31",
+  employmentType: "FULL_TIME",
+  hiringOrganization: {
+    "@type": "Organization",
+    name: "Etamin",
+    sameAs: "https://etamin.uz",
+    logo: "https://etamin.uz/android-chrome-512x512.png",
+  },
+  jobLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Center City",
+      addressLocality: "Namangan",
+      addressRegion: "Namangan Region",
+      addressCountry: "UZ",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "40.9983",
+      longitude: "71.6726",
+    },
+  },
+  jobLocationType: "ONSITE",
+  applicantLocationRequirements: {
+    "@type": "Country",
+    name: "Uzbekistan",
+  },
+  skills: "React, TypeScript, Python, AI/ML, Git",
+  experienceRequirements: "1+ years",
+  industry: "Software Development",
+  occupationalCategory: "Software Engineer",
+}
 
 export const Route = createFileRoute("/careers")({
   component: CareersLayout,
   head: () =>
     createRouteHead({
-      title:
-        "Careers — Join Our Team in Namangan | Etamin Software Development",
+      title: "Careers — Join Our Software Engineering Team | Etamin Namangan",
       description:
-        "Join Etamin's world-class software development team in Namangan, Uzbekistan. Competitive salaries and exciting projects. Open positions for engineers, designers, and product managers.",
+        "Join Etamin's software development team in Namangan, Uzbekistan. Work on AI-powered projects with React, TypeScript, Python. Onsite positions available. Apply now!",
       keywords:
-        "software developer jobs Namangan, software jobs Uzbekistan, tech careers Namangan, software engineer hiring, React developer jobs, Node.js jobs, onsite tech positions",
+        "software developer jobs Namangan, software jobs Uzbekistan, tech careers Namangan, software engineer hiring, React developer jobs, AI developer jobs, onsite tech positions, Uzbekistan tech jobs",
       ogType: "website",
       canonical: "https://etamin.uz/careers",
+      structuredData: jobPostingSchema,
+      breadcrumb: generateBreadcrumb("Careers", "https://etamin.uz/careers"),
+      alternateLanguages: generateAlternateLanguages("/careers"),
     }),
 })
 
