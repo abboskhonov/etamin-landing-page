@@ -25,7 +25,7 @@ const contactPageSchema = {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+998-XX-XXX-XXXX",
+      telephone: "+998-90-663-44-46",
       contactType: "sales",
       availableLanguage: ["English", "Russian", "Uzbek"],
     },
@@ -340,7 +340,7 @@ function ContactPage() {
                   <h3 className="mb-4 text-lg font-medium">Contact Info</h3>
                   <div className="space-y-4">
                     <a
-                      href="mailto:hello@etamin.dev"
+                      href="mailto:cameron@etamin.digital"
                       className="flex items-start gap-4 text-muted-foreground transition-colors hover:text-foreground"
                     >
                       <Mail className="mt-0.5 size-5 shrink-0" />
@@ -348,12 +348,12 @@ function ContactPage() {
                         <p className="text-sm font-medium text-foreground">
                           Email
                         </p>
-                        <p className="text-sm">hello@etamin.dev</p>
+                        <p className="text-sm">cameron@etamin.digital</p>
                       </div>
                     </a>
 
                     <a
-                      href="tel:+998XXXXXXXXX"
+                      href="tel:+998906634446"
                       className="flex items-start gap-4 text-muted-foreground transition-colors hover:text-foreground"
                     >
                       <Phone className="mt-0.5 size-5 shrink-0" />
@@ -361,7 +361,7 @@ function ContactPage() {
                         <p className="text-sm font-medium text-foreground">
                           Phone
                         </p>
-                        <p className="text-sm">+998 XX XXX XXXX</p>
+                        <p className="text-sm">+998 90 663 44 46</p>
                       </div>
                     </a>
 

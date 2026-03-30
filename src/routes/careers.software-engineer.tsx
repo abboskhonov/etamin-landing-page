@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { ArrowLeft, MapPin, Briefcase, DollarSign } from "lucide-react"
+import { ArrowLeft, MapPin, Briefcase } from "lucide-react"
 
 import { Container } from "@/components/Container"
 import { Button } from "@/components/ui/button"
@@ -36,16 +36,6 @@ const jobPostingSchema = {
     sameAs: "https://etamin.uz",
     logo: "https://etamin.uz/android-chrome-512x512.png",
   },
-  baseSalary: {
-    "@type": "MonetaryAmount",
-    currency: "USD",
-    value: {
-      "@type": "QuantitativeValue",
-      minValue: 50000,
-      maxValue: 120000,
-      unitText: "YEAR",
-    },
-  },
 }
 
 export const Route = createFileRoute("/careers/software-engineer")({
@@ -54,7 +44,7 @@ export const Route = createFileRoute("/careers/software-engineer")({
     createRouteHead({
       title: "Software Engineer Job — Join Etamin in Namangan",
       description:
-        "Software Engineer position at Etamin. Onsite in Namangan, Uzbekistan. Competitive salary $50K-$120K. Work with React, Node.js, and cloud technologies on enterprise projects. Apply now!",
+        "Software Engineer position at Etamin. Onsite in Namangan, Uzbekistan. Work with React, Node.js, and cloud technologies on enterprise projects. Apply now!",
       keywords:
         "software engineer job Namangan, React developer position Uzbekistan, Node.js job Namangan, onsite software engineer, Namangan tech jobs, full stack developer hiring Uzbekistan",
       ogType: "website",
@@ -92,10 +82,6 @@ function JobDetailPage() {
             <div className="flex items-center gap-2">
               <Briefcase className="size-4" />
               <span>Full-time</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <DollarSign className="size-4" />
-              <span>$50K - $120K USD / year</span>
             </div>
           </div>
 

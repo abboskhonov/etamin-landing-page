@@ -184,7 +184,7 @@ function LandingPage() {
                 <div className="grid grid-cols-2 gap-px bg-border md:grid-cols-4">
                   {[
                     { value: "50+", label: "Projects Delivered" },
-                    { value: "10+", label: "Years Experience" },
+                    { value: "2", label: "Years Experience" },
                     { value: "99%", label: "Client Satisfaction" },
                     { value: "24/7", label: "Support" },
                   ].map((stat) => (
