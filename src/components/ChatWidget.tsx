@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import { Send, Bot, User, Loader2, Phone, Mail } from "lucide-react"
+import { Send, Bot, User, Loader2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { chatWithAI } from "@/server/chat"
@@ -164,25 +164,6 @@ export function ChatWidget() {
           </div>
         </div>
       )}
-
-      {/* Contact Info Banner */}
-      <div className="flex items-center justify-center gap-4 border-t border-border bg-muted/30 px-4 py-2 text-xs">
-        <a
-          href="tel:+998906634446"
-          className="flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <Phone className="size-3" />
-          <span>+998 90 663 44 46</span>
-        </a>
-        <span className="text-border">|</span>
-        <a
-          href="mailto:cameron@etamin.digital"
-          className="flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <Mail className="size-3" />
-          <span>cameron@etamin.digital</span>
-        </a>
-      </div>
 
       {/* Input */}
       <form
