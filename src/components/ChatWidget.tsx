@@ -10,10 +10,10 @@ interface Message {
 }
 
 const suggestedQuestions = [
-  "What services do you offer?",
-  "How much does it cost?",
-  "What technologies do you use?",
+  "What do you build?",
   "How fast can you deliver?",
+  "Let's start a project",
+  "Get a quote",
 ]
 
 export function ChatWidget() {
@@ -21,7 +21,7 @@ export function ChatWidget() {
     {
       role: "assistant",
       content:
-        "Hi! I'm Etamin's AI assistant. Ask me anything about our services.",
+        "Yo! Ready to build something epic? Tell me what you're working on and let's make it happen. 💪",
     },
   ])
   const [input, setInput] = useState("")
